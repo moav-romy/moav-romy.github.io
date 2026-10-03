@@ -14,6 +14,9 @@ Then open `http://localhost:4173`.
 
 ## Deployment
 
-The repository deploys automatically to GitHub Pages whenever `main` is updated. The workflow lives in `.github/workflows/pages.yml` and requires no build step.
+The repository deploys automatically to GitHub Pages whenever `main` is updated. The workflow lives in `.github/workflows/pages.yml` and requires no build step. The intended custom domain is `romy-moav.com`.
 
-To connect a custom domain later, add the domain in the repository’s **Settings → Pages** configuration and add the corresponding DNS records at the domain provider.
+To finish custom-domain setup, configure DNS at the domain provider:
+
+- `A` records for `@` to `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, and `185.199.111.153`
+- A `CNAME` record for `www` to `moav-romy.github.io`
