@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&display=swap");
+
+:root {
+  --ink: #17151a;
+  --paper: #f7f3ed;
+  --cherry: #ed4b35;
+  --yellow: #f6cf47;
+  --blue: #69a5e8;
+  --mono: "DM Mono", monospace;
+  --serif: "DM Serif Display", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--serif); }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--ink); outline-offset: 5px; }
+.skip-link { position: fixed; z-index: 5; top: -4rem; left: 1rem; padding: .75rem 1rem; color: var(--paper); background: var(--ink); font: .7rem var(--mono); }
+.skip-link:focus { top: 1rem; }
+
+.hero {
+  position: relative; min-height: 100svh; display: grid; place-items: center; overflow: hidden;
+  padding: 7rem clamp(1.25rem, 8vw, 9rem) 5rem; background: var(--cherry);
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0; opacity: .16; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+  mix-blend-mode: screen;
+}
+.hero-caption, .scroll-cue, .eyebrow, .site-footer { position: absolute; z-index: 1; font: .68rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.hero-caption { top: 2rem; left: clamp(1.25rem, 8vw, 9rem); color: var(--ink); }
+.hero-content { position: relative; z-index: 1; width: min(100%, 940px); }
+h1, h2 { margin: 0; letter-spacing: -.075em; line-height: .86; font-weight: 400; }
+h1 { color: var(--paper); font-size: clamp(4.5rem, 13vw, 13rem); }
+h1 em { color: var(--ink); font-style: normal; }
+.scroll-cue { bottom: 2rem; left: clamp(1.25rem, 8vw, 9rem); display: inline-flex; gap: 1rem; align-items: center; color: var(--paper); text-decoration: none; }
+.scroll-cue span { color: var(--yellow); font-size: 1.25rem; }
+.hero-orbit { position: absolute; border: 2px solid var(--yellow); border-radius: 50%; pointer-events: none; transform-origin: center; }
+.orbit-one { width: 48vw; height: 48vw; max-width: 720px; max-height: 720px; right: -14vw; top: 12%; animation: orbit-drift-one 14s ease-in-out infinite alternate; }
+.orbit-two { width: 28vw; height: 28vw; max-width: 420px; max-height: 420px; right: -3vw; top: 28%; border-color: var(--ink); animation: orbit-drift-two 10s ease-in-out infinite alternate; }
+.hero-spark { position: absolute; z-index: 2; color: var(--yellow); font-size: clamp(2rem, 5vw, 5rem); }
+.spark-one { left: 15%; top: 18%; transform: rotate(15deg); animation: spark-float-one 5s ease-in-out infinite; }
+.spark-two { right: 15%; bottom: 21%; color: var(--ink); transform: rotate(-20deg); animation: spark-float-two 6s ease-in-out 1s infinite; }
+.spark-three { right: 28%; top: 48%; color: var(--yellow); transform: rotate(8deg) scale(.72); animation: spark-float-three 5.5s ease-in-out .5s infinite; }
+@keyframes orbit-drift-one {
+  0% { transform: translate3d(0, 0, 0) rotate(-4deg) scale(.98); }
+  100% { transform: translate3d(-2vw, 1.5vh, 0) rotate(5deg) scale(1.03); }
+}
+@keyframes orbit-drift-two {
+  0% { transform: translate3d(0, 0, 0) rotate(7deg) scale(1); }
+  100% { transform: translate3d(1.5vw, -2vh, 0) rotate(-8deg) scale(.94); }
+}
+@keyframes spark-float-one {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(15deg) scale(1); }
+  50% { transform: translate3d(0, -12px, 0) rotate(28deg) scale(1.1); }
+}
+@keyframes spark-float-two {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-20deg) scale(1); }
+  50% { transform: translate3d(-10px, 9px, 0) rotate(-34deg) scale(.9); }
+}
+@keyframes spark-float-three {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(8deg) scale(.72); }
+  50% { transform: translate3d(8px, -10px, 0) rotate(24deg) scale(.86); }
+}
+
+.continue { position: relative; min-height: 82svh; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(220px, .6fr); align-content: center; gap: clamp(3rem, 10vw, 10rem); padding: 6rem clamp(1.25rem, 8vw, 9rem) 5rem; background: var(--yellow); }
+.continue-copy { max-width: 760px; }
+.eyebrow { position: static; display: inline-block; margin: 0 0 2rem; color: var(--cherry); }
+h2 { font-size: clamp(3.7rem, 8vw, 8.5rem); }
+.continue-intro { max-width: 32rem; margin: 2.5rem 0 0; color: var(--ink); font-size: clamp(1.1rem, 1.8vw, 1.45rem); line-height: 1.2; }
+.continue-note { max-width: 20rem; margin: 2.5rem 0 0; color: var(--ink); font-size: 1.1rem; line-height: 1.25; }
+.continue-note a { text-decoration-thickness: 1px; text-underline-offset: .2em; }
+.continue-links { align-self: end; border-top: 1px solid var(--ink); }
+.continue-links a { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(23,21,26,.35); font: 1rem var(--mono); text-decoration: none; }
+.continue-links a:hover { color: var(--cherry); padding-left: .6rem; }
+.continue-links b { color: var(--cherry); font-size: 1.3rem; font-weight: 400; }
+.site-footer { position: absolute; right: clamp(1.25rem, 8vw, 9rem); bottom: 2rem; left: clamp(1.25rem, 8vw, 9rem); display: flex; justify-content: space-between; color: var(--ink); }
+
+@media (max-width: 700px) {
+  .hero { min-height: 100svh; padding-top: 6rem; }
+  .hero-caption { top: 1.5rem; }
+  .hero-caption { left: 1.25rem; }
+  h1 { font-size: clamp(4rem, 19vw, 8rem); }
+  .orbit-one { width: 80vw; height: 80vw; right: -30vw; top: 17%; }.orbit-two { width: 48vw; height: 48vw; right: -13vw; top: 31%; }
+  .spark-one { left: 7%; top: 20%; }.spark-two { right: 12%; bottom: 18%; }.spark-three { right: 9%; top: 49%; }
+  .scroll-cue { bottom: 1.5rem; left: 1.25rem; }
+  .continue { display: block; min-height: 82svh; padding: 5rem 1.25rem 6rem; }
+  .continue-links { margin-top: 5rem; }
+  .site-footer { right: 1.25rem; bottom: 1.5rem; left: 1.25rem; gap: 1rem; font-size: .58rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-orbit, .hero-spark { animation: none; }
+}

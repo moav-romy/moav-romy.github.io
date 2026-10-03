@@ -1,29 +1,19 @@
-# Personal Portfolio Website
+# Romy Moav
 
-A simple personal portfolio website to showcase who I am, what I do, and the projects I've built.
+A concise personal landing page for Romy Moav, writer and cybersecurity practitioner working at the intersection of business, product, and AI.
 
-## Goals
+## Local preview
 
-- Present a clean, professional online presence.
-- Share a short bio and background.
-- Showcase selected projects with descriptions, links, and screenshots.
-- Provide a way for visitors to get in touch.
+Because the site is static, serve the repository root with any local HTTP server:
 
-## Planned Sections
+```bash
+python3 -m http.server 4173
+```
 
-- **Home / Hero** — name, tagline, and a brief intro.
-- **About** — longer bio, skills, and interests.
-- **Projects** — curated list of work with images and links.
-- **Contact** — email and links to social / professional profiles.
+Then open `http://localhost:4173`.
 
-## Tech Stack
+## Deployment
 
-_To be decided._ Candidates:
+The repository deploys automatically to GitHub Pages whenever `main` is updated. The workflow lives in `.github/workflows/pages.yml` and requires no build step.
 
-- Static site (HTML/CSS/JS) for simplicity.
-- A framework like Next.js, Astro, or SvelteKit if more structure is needed.
-- Deployment via GitHub Pages, Vercel, or Netlify.
-
-## Status
-
-Early planning — no code yet.
+To connect a custom domain later, add the domain in the repository’s **Settings → Pages** configuration and add the corresponding DNS records at the domain provider.
